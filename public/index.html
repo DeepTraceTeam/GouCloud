@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文件云盘</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="top-bar">
+    <h1 id="top-bar-title">328 文件云盘</h1>
+    <div class="top-bar-buttons">
+      <button id="destroy-account-button" class="danger-button hidden">销毁账户</button>
+      <button id="logout-button" class="hidden" onclick="logout()">退出登录</button>
+    </div>
+  </div>
+  <div id="login-section">
+    <div id="auth-section" class="centered-box">
+      <h2>登录</h2> <label>用户名: <input type="text" id="login-username"></label><br> <label>密码: <input type="password" id="login-password"></label><br> <button onclick="login()">登录</button> <button onclick="showRegister()">去注册</button>
+    </div>
+  </div>
+  <div id="register-section" class="hidden">
+    <div id="auth-section" class="centered-box">
+      <h2>注册</h2> <label>用户名: <input type="text" id="register-username"></label><br> <label>密码: <input type="password" id="register-password"></label><br> <button onclick="register()">注册</button> <button onclick="showLogin()">取消</button>
+    </div>
+  </div>
+  <div id="main-section" class="hidden">
+    <div id="main-section" class="main-content">
+      <h3>上传文件</h3>
+      <div class="file-upload-container"> <label for="file-upload" class="custom-file-upload"> 选择文件 </label> <input type="file" id="file-upload" style="display: none;"> <button type="button" id="clear-button">清空</button> <button type="button" onclick="uploadFile()" id="update-button">上传</button>
+        <span id="file-name"></span> </div>
+      <h3>文件列表</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>文件名</th>
+            <th>上传时间</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="file-table-body"></tbody>
+      </table>
+    </div>
+  </div>
+  <div id="modal-overlay" class="hidden"></div>
+  <div id="confirm-close-modal" class="hidden">
+    <h3>您正在关闭页面，当前会话未保存。是否继续？</h3> <button id="confirm-close">确认关闭</button> <button id="cancel-close">取消</button>
+  </div>
+  <div id="modal-overlay" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1000;"></div>
+  <div id="confirmation-modal" class="hidden" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1001; text-align: center;">
+    <h3 id="modal-message">确认操作？</h3>
+    <div style="margin-top: 20px;"> <button id="confirm-action" style="margin-right: 10px;">确认</button> <button id="cancel-action">取消</button> </div>
+  </div>
+  <div id="modal-overlay" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1000;"></div>
+  <div id="confirmation-modal" class="hidden"
+    style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 15px; border: 1px solid #ccc; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); z-index: 1001; text-align: center; max-width: 400px; min-width: 300px;">
+    <h2 id="modal-title">提示</h2>
+    <p id="modal-message" style="margin-top: 10px; color: #333;">确认操作？</p>
+    <div style="margin-top: 20px;"> <button id="confirm-action" style="margin-right: 10px; padding: 10px 20px; border-radius: 10px; border: none; background: #007bff; color: white;">确认</button> <button id="cancel-action"
+        style="padding: 10px 20px; border-radius: 10px; border: none; background: #ccc; color: #333;">取消</button> </div>
+  </div>
+  <div id="share-modal" class="hidden" 
+     style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+            background: white; padding: 30px; border-radius: 15px; 
+            border: 1px solid #ccc; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+            z-index: 1001; text-align: center; max-width: 500px; min-width: 300px;">
+  <h2>分享文件</h2>
+  <div id="share-content" style="margin: 20px 0; word-break: break-all;"></div>
+  <button onclick="document.getElementById('share-modal').classList.add('hidden');
+                   document.getElementById('modal-overlay').classList.add('hidden');">
+    关闭
+  </button>
+</div>
+  <div id="notification-container" style="position: fixed; top: 20px; right: 20px; z-index: 2000; display: flex; flex-direction: column; gap: 10px;"></div>
+  <div id="delete-account-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2 class="modal-title">请输入您的密码和确认文字以删除账户</h2>
+      <div class="modal-body">
+        <input type="password" id="confirm-password" class="confirmation-input" placeholder="输入���码">
+        <input type="text" id="confirm-text" class="confirmation-input" 
+               placeholder="请输入: 我真的要删除这个账户" 
+               onpaste="return false;" 
+               ondrop="return false;">
+      </div>
+      <div class="modal-footer">
+        <button id="confirm-delete" class="delete-confirm-btn">确认删除</button>
+        <button id="cancel-delete" class="delete-cancel-btn">取消</button>
+      </div>
+    </div>
+  </div>
+</body>
+<script></script>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>

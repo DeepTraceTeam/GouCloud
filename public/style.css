@@ -1,0 +1,500 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .top-bar {
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .top-bar h1 {
+    font-size: 1.5em;
+    color: #333;
+  }
+  
+  .top-bar button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .2);
+    cursor: pointer;
+    transition: all .3s ease;
+  }
+  
+  .top-bar button:hover {
+    background-color: #444;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f4f4f9;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .2);
+    cursor: pointer;
+    transition: all .3s ease;
+  }
+  
+  button:hover {
+    background-color: #444;
+  }
+  input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+  }
+  input:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  .centered-box {
+    background-color: white;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
+    text-align: center;
+    border-radius: 8px;
+  }
+  
+  .centered-box label{
+    text-align: left!important;
+  }
+  .main-content {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
+  }
+  
+  .main-content h3 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .file-upload-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .custom-file-upload {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color .3s;
+  }
+  
+  .custom-file-upload:hover {
+    background-color: #f5f5f5;
+    color: black;
+  }
+  
+  #clear-button {
+    margin-left: 8px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #clear-button:hover {
+    background-color: #f5f5f5;
+    color: black;
+  }
+  
+  #update-button {
+    margin-left: 8px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #update-button:hover {
+    background-color: #f5f5f5;
+    color: black;
+  }
+  
+  #file-name {
+    margin-left: 8px;
+  }
+  
+  #modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .3);
+    z-index: 999;
+  }
+  
+  #confirm-close-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
+    text-align: center;
+    z-index: 1000;
+  }
+  
+  #confirm-close-modal p {
+    margin-bottom: 35px;
+    font-size: 1em;
+    color: #333;
+  }
+  
+  #confirm-close-modal button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: .9em;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all .3s ease;
+  }
+  
+  #confirm-close-modal button:hover {
+    background-color: #444;
+  }
+  
+  .notification {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
+    padding: 15px 20px;
+    min-width: 250px;
+    animation: slide-in .5s ease-out, fade-out .5s ease-in 1.2s forwards;
+  }
+  
+  .notification-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .notification-content {
+    font-size: .9em;
+    color: #555;
+  }
+  
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fade-out {
+    to {
+      opacity: 0;
+      transform: translateY(-10%);
+    }
+  }
+
+  /* From Uiverse.io by WhiteNervosa */ 
+.textInputWrapper {
+  position: relative;
+  width: 180px;
+  margin: 12px 5px;
+  --accent-color: #a3e583;
+}
+
+.textInputWrapper:before {
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.textInputWrapper:before,
+.textInputWrapper:after {
+  content: "";
+  left: 0;
+  right: 0;
+  position: absolute;
+  pointer-events: none;
+  bottom: -1px;
+  z-index: 4;
+  width: 100%;
+}
+
+.textInputWrapper:focus-within:before {
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.textInputWrapper:before {
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.textInputWrapper:focus-within:before {
+  border-bottom: 1px solid var(--accent-color);
+  transform: scaleX(1);
+}
+
+.textInputWrapper:focus-within:after {
+  border-bottom: 2px solid var(--accent-color);
+  transform: scaleX(1);
+}
+
+.textInputWrapper:after {
+  content: "";
+  transform: scaleX(0);
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  will-change: transform;
+  border-bottom: 2px solid var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+
+.textInput::placeholder {
+  transition: opacity 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  opacity: 1;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.582);
+}
+
+.textInputWrapper .textInput {
+  border-radius: 5px 5px 0px 0px;
+  box-shadow: 0px 2px 5px rgb(35 35 35 / 30%);
+  max-height: 36px;
+  background-color: #252525;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 200ms;
+  transition-property: background-color;
+  color: #e8e8e8;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px;
+  width: 100%;
+  border-left: none;
+  border-bottom: none;
+  border-right: none;
+}
+
+.textInputWrapper .textInput:focus,
+.textInputWrapper .textInput:active {
+  outline: none;
+}
+
+.textInputWrapper:focus-within .textInput,
+.textInputWrapper .textInput:focus,
+.textInputWrapper .textInput:active {
+  background-color: #353535;
+}
+
+.textInputWrapper:focus-within .textInput::placeholder {
+  opacity: 0;
+}
+
+.action-buttons {
+  white-space: nowrap;
+}
+
+.button-group {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.action-button {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.action-button.download {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.action-button.delete {
+  background-color: #f44336;
+  color: white;
+}
+
+.action-button.share {
+  background-color: #2196F3;
+  color: white;
+}
+
+.action-button.unshare {
+  background-color: #FF9800;
+  color: white;
+}
+
+.action-button:hover {
+  opacity: 0.9;
+}
+
+.top-bar-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.danger-button {
+  background-color: #dc3545 !important;
+}
+
+.danger-button:hover {
+  background-color: #c82333 !important;
+}
+
+.confirmation-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.confirmation-input[readonly] {
+  background-color: #f8f9fa;
+  color: #6c757d;
+}
+/* 添加新的样式 */
+.delete-confirm-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-cancel-btn {
+  background-color: #343a40;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* 添加/修改模态窗样式 */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  width: 400px;
+}
+
+/* 遮罩层样式 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.confirmation-input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+} 
