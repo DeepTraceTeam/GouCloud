@@ -30,3 +30,7 @@ CREATE TABLE file_shares (
     UNIQUE KEY unique_file_uuid (file_uuid)
 );
 ```
+## Python库安装
+```bash
+pip install Flask mysql-connector-python Werkzeug
+```
