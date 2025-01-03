@@ -1,6 +1,16 @@
 # GouCloud
 Advanced and aesthetically pleasing cloud storage.
-## 数据库配置-MySQL V8.0.4
+
+Code author: GavinMorgan
+
+Author's Bilibili link: `https://space.bilibili.com/3546377816639822`
+
+先进美观的云储存
+
+代码作者：Bilibili@海天一色鸥
+
+作者的Bilibili链接：https://space.bilibili.com/3546377816639822
+## Database Configuration - MySQL V8.0.4 
 ```c++
 CREATE DATABASE cloud_disk;
 
